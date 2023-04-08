@@ -1,20 +1,15 @@
-const endpoint = 'https://api-free.deepl.com/v2/translate';
+import { deepL_translation } from "./request.js";
+import {format_translation} from "./formatting.js"
+
+var button = document.getElementById("translate_button")
 
 
-const data = {
-  auth_key: authKey,
-  text: 'Hello, world. My name is autin', 
-  target_lang: 'DE',
-  
-};
-
-fetch(endpoint, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  },
-  body: new URLSearchParams(data)
-})
-.then(response => response.json())
-.then(data => console.log(data.translations[0].text))
-.catch(error => console.error(error));
+button.onclick = function(){
+    let request_response = deepL_translation()
+    
+    request_response.then(function(deepL_answer){ 
+        var translated_text = deepL_answer.translations[0].text
+        format_translation(translated_text)
+        }
+    )    
+}

@@ -1,0 +1,29 @@
+#translation_boxes{
+    display: flex;
+    flex-direction: row;
+}
+
+#translation_navbar{
+    display: flex;
+    align-content: center;
+    border: solid blue 5px;
+}
+
+#my_input{
+    text-align: left;
+    text-align: top; 
+    height: 50vh;
+    width: 50vw;
+    
+}
+#translation{
+    height: 50vh;
+    width: 50vw;
+    border: solid white 3px;
+}
+
+#translate_button{
+    color: red;
+    display: flex;
+    align-self: center;
+}

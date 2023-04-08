@@ -4,11 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/js/main.js" ></script>
+    <script type= "module" src="/js/main.js" ></script>
+    <link rel="stylesheet" href="/css/index.css">
     <title>Document</title>
 </head>
 <body>
+
+    <fieldset id = "translation_navbar">
+        <select name="language" id="translation_language">
+            <option value="FR">FR</option>
+            <option value="EN">EN</option>
+            <option value="DE">DE</option>
+            <option value="RU">RU</option>
+        </select>
+        <input type="button" name="" id="translate_button" value = "Translate now!"></input> 
+
+    </fieldset>
+
+
+    <div id ="translation_boxes">
+        <textarea id = "my_input">Les funérailles de Maxime Fomine, un célèbre blogueur militaire russe soutenant la guerre en Ukraine assassiné le 2 avril, se sont tenues samedi à Moscou.
+            C'est un décès qui a suscité une vive émotion dans la communauté russe. Plusieurs centaines de personnes, dont le chef du groupe paramilitaire Wagner, se sont rassemblées samedi à Moscou pour les funérailles d'un célèbre blogueur militaire russe soutenant l'attaque en Ukraine et tué la semaine dernière dans un attentat à la bombe.
+            Selon des journalistes de l'AFP sur place, des centaines de personnes se sont rendues au cimetière de Troïekourovskoïe dans l'ouest de la capitale pour se recueillir devant le cercueil de Maxime Fomine avant son enterrement. Un important dispositif policier a été déployé, avec un contrôle minutieux des personnes se rendant au cimetière. Beaucoup d'entre elles portaient des vêtements frappés d'un Z ou d'un V, signes de leur soutien à l'offensive en Ukraine.
+            
+            Une suspecte interpellée
+            Cet assassinat est "une tentative de tuer la vérité (...) qui essaye de percer la couche de pourriture qui recouvre la société russe", a assuré à l'AFP Anna Ivannikova, une manager moscovite de 33 ans venue avec des fleurs. Selon elle, la société russe "dort toujours", hormis dans les villes de Russie les plus proches de l'Ukraine, où les combats font rage depuis plus d'un an.</textarea>
+        <textarea id = "translation" disabled = "true" ></textarea>
+    </div>
     
+    
+      
 </body>
 
 
