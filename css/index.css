@@ -12,14 +12,14 @@
 #my_input{
     text-align: left;
     text-align: top; 
-    height: 50vh;
-    width: 50vw;
+    height: 70vh;
+    width: 70vw;
     
 }
-#translation{
-    height: 50vh;
-    width: 50vw;
-    border: solid white 3px;
+#translation , #my_input{
+    height: 70vh;
+    width: 70vw;
+    border: solid blue 3px;
 }
 
 #translate_button{

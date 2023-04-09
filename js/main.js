@@ -5,11 +5,14 @@ var button = document.getElementById("translate_button")
 
 
 button.onclick = function(){
-    let request_response = deepL_translation()
+    /* let request_response = deepL_translation() */
     
-    request_response.then(function(deepL_answer){ 
+    /* request_response.then(function(deepL_answer){ 
         var translated_text = deepL_answer.translations[0].text
         format_translation(translated_text)
         }
-    )    
+    )     */
+
+    let text = document.getElementById("my_input").value
+    format_translation(text)
 }
