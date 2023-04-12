@@ -1,3 +1,4 @@
+import {dictionnary} from "./main.js"
 /**
  * get translated text, parse it to extract sentences and then output them to a text area
  * 
@@ -11,6 +12,18 @@ export function format_translation(data_translation){
         var traduced_sentences_array = parse_text(data_translation)
         
         for(let sentence of traduced_sentences_array){
+          let line = document.createElement("p")
+          let split_sentence = sentence[0].split(" ")
+          for(let word of split_sentence){
+            let span = document.createElement("span")
+            span.textContent = word + " "
+            line.appendChild(span)
+          }
+          translation_box.appendChild(line)
+          
+          
+          
+          
           translation_box.value += sentence + "\n" + "\n"
         }
 
@@ -51,8 +64,10 @@ function parse_text(text){
         counter += 1
         text_to_push = ""
     } 
-
   }
+  // a corriger : quand le text finis par une ponctuation, une liste vide est ajoutée et gène l'insertion dans la box traduite
+  if(parse_text[-1] == null){parsed_text.pop()}
+  console.log(parsed_text)
   return parsed_text
 
 }
