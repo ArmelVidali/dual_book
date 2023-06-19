@@ -8,30 +8,40 @@ export function format_translation(data_translation){
         var original_text_box = document.getElementById("my_input")
         var translation_box = document.getElementById("translation")
 
-        var original_sentences_array = parse_text(original_text_box.value)
+        var original_sentences_array = parse_text(original_text_box.textContent)
         var traduced_sentences_array = parse_text(data_translation)
+
+        translation_box.textContent = ""
         
         for(let sentence of traduced_sentences_array){
           let line = document.createElement("p")
+          line.style.fontSize = "15px"
+          line.style.font = "arial"
           let split_sentence = sentence[0].split(" ")
           for(let word of split_sentence){
             let span = document.createElement("span")
             span.textContent = word + " "
             line.appendChild(span)
           }
-          translation_box.appendChild(line)
-          
-          
-          
-          
-          translation_box.value += sentence + "\n" + "\n"
+          translation_box.appendChild(line)        
         }
 
-        original_text_box.value = ""
-        
+
+        original_text_box.textContent = ""
+
         for(let sentence of original_sentences_array){
-          original_text_box.value += sentence + "\n" + "\n"
+          let line = document.createElement("p")
+          line.style.fontSize = "15px"
+          line.style.font = "arial"
+          let split_sentence = sentence[0].split(" ")
+          for(let word of split_sentence){
+            let span = document.createElement("span")
+            span.textContent = word + " "
+            line.appendChild(span)
+          }
+          original_text_box.appendChild(line)        
         }
+
 }
 
 /**

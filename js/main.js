@@ -1,4 +1,4 @@
-import {deepL_translation, get_word_definiton } from "./request.js";
+import {deepL_translation, get_word_definiton, chat_gpt_request } from "./request.js";
 import {format_translation} from "./formatting.js"
 
 
@@ -12,24 +12,45 @@ var translated_text = document.getElementById("translation")
 
 
 button.onclick = function(){
-    let request_response = deepL_translation() 
-    
-    
-     request_response.then(function(deepL_answer){ 
-        var translated_text = deepL_answer.translations[0].text
-        format_translation(translated_text)
-        }
-    )     
+    /* let request_response = deepL_translation()  */
+    let text = document.getElementById("my_input").firstChild
 
-    /* let text = document.getElementById("my_input").value
-    format_translation(text) */
+    let translateText = async (text) => {
+        try {
+          const response = await fetch('/translate', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text }),
+          });
+      
+          if (!response.ok) {
+            throw new Error('Translation request failed');
+          }
+      
+          const translatedText = await response.json();
+          return translatedText;
+        } catch (error) {
+          console.error('An error occurred:', error);
+          throw error;
+        }
+      };
+
+    
+    translateText(text)
+      .then((translatedText) => {
+        console.log('Translated text:', translatedText);
+      })
+      .catch((error) => {
+        console.error('Translation failed:', error);
+      });
 }
 
 
 translated_text.onclick = function(event){
     let word = encodeURIComponent(event.target.textContent.trim())
-    let target_lang = document.getElementById("translation_language").value
-    console.log(target_lang)
+    let target_lang = document.getElementById("translation_language").valu
 
     get_word_definiton(target_lang, word)
 
